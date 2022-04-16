@@ -1,0 +1,60 @@
+h1{
+	display: flex;
+	justify-content: center;
+}
+
+p{
+ 	display: flex;
+ 	justify-content: center;
+}
+
+.selection-button
+{
+	display: flex;
+	width:  80px;
+	height: 80px;
+	border: 4px solid purple;
+	justify-content: center;
+	align-content: center;
+}
+
+.selection-container
+{
+	display: flex;
+	justify-content: center;
+	gap : 10px;
+}
+
+.result-container{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap : 10px;
+}
+
+.result-row{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+	margin-bottom: -20px;
+	border:  1px solid green;
+
+}
+
+.result-row p{
+	margin-top: 10px;
+	padding: 1px;
+}
+
+
+.selection-button:hover
+{
+ background-color: lightgrey;
+}
+
+#selection-rock{}
+
+#selection-paper{}
+
+#selection-scissors{}
+
