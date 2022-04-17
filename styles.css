@@ -46,6 +46,11 @@ p{
 	padding: 1px;
 }
 
+#final-result-text {
+	font-size: 45px;
+}
+
+
 
 .selection-button:hover
 {

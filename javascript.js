@@ -15,6 +15,7 @@ var playerResult = document.getElementById("player-result");
 var computerResult = document.getElementById("computer-result");
 var playerWins = document.getElementById("player-score");
 var computerWins = document.getElementById("computer-score");
+var finalResultText = document.getElementById("final-result-text");
 
 
 function start(){
@@ -57,8 +58,25 @@ return playerOutput;
 }
 
 
+function scoreCheck()
+{
+  if(cWins == 5)
+	{
+		finalResultText.innerHTML = "Computer Wins";
+		console.log('computer wins');
+
+	}
+	if(pWins == 5) 
+	{
+		finalResultText.innerHTML = "Player Wins";
+		console.log("player wins");
+	}
+}
+
 //checks the player and AI selection
 function playRound(playerSelection, computerSelection){
+	
+
 	if(playerSelection == computerSelection)
 	{
 		return "Draw";
@@ -67,32 +85,26 @@ function playRound(playerSelection, computerSelection){
 	if(playerSelection != computerSelection)
 	{
 	
-	if(playerSelection === "Rock" && computerSelection === "Scissors" 
+		if(playerSelection === "Rock" && computerSelection === "Scissors" 
 		|| playerSelection === "Paper" && computerSelection === "Rock"
 		|| playerSelection === "Scissors" && computerSelection === "Paper")
 	{
 		pWins+=1;
+		scoreCheck();
 		playerWins.textContent = pWins;
+		console.log(pWins);
 		return "Win";
 	}
 	else
 	{
 		cWins+=1;
+		scoreCheck();
 		computerWins.textContent = cWins;
+		console.log(cWins);
 		return "Lose";
-	}
-
-}
-	
-	if(computerWins == 5)
-	{
-		//Game Over
-
-	}
-	if(playerWins == 5)
-	{
-		//Victory Royale
-	}
+	} 
+ }
+		
 }
 
 
