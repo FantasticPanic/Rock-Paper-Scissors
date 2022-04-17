@@ -5,6 +5,7 @@ let playerSelection = "";
 let computerSelection  = "";
 let pWins = 0;
 let cWins = 0;
+let isGameActive = true;
 
 const selection = document.getElementsByClassName("selection-button");
 var rock = document.getElementById("selection-rock");
@@ -63,12 +64,14 @@ function scoreCheck()
   if(cWins == 5)
 	{
 		finalResultText.innerHTML = "Computer Wins";
+		isGameActive = false;
 		console.log('computer wins');
 
 	}
 	if(pWins == 5) 
 	{
 		finalResultText.innerHTML = "Player Wins";
+		isGameActive = false;
 		console.log("player wins");
 	}
 }
@@ -92,7 +95,6 @@ function playRound(playerSelection, computerSelection){
 		pWins+=1;
 		scoreCheck();
 		playerWins.textContent = pWins;
-		console.log(pWins);
 		return "Win";
 	}
 	else
@@ -100,7 +102,6 @@ function playRound(playerSelection, computerSelection){
 		cWins+=1;
 		scoreCheck();
 		computerWins.textContent = cWins;
-		console.log(cWins);
 		return "Lose";
 	} 
  }
@@ -111,31 +112,36 @@ function playRound(playerSelection, computerSelection){
 
 
 rock.onclick = function(){
-	playerOutput = "Rock"
-	let temp = computerPlay(3);
-	console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
-	resultText.innerHTML = playRound(playerOutput,temp);
-	playerResult.innerHTML =  playerOutput;
-	computerResult.innerHTML = temp;
+	if(isGameActive == true){
+		playerOutput = "Rock"
+		let temp = computerPlay(3);
+		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		resultText.innerHTML = playRound(playerOutput,temp);
+		playerResult.innerHTML =  playerOutput;
+		computerResult.innerHTML = temp;
+ }
 };
 
 paper.onclick = function(){
+	if(isGameActive == true){
 	playerOutput = "Paper"
 	let temp = computerPlay(3);
     console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
 	resultText.innerHTML = playRound(playerOutput,temp);
 	playerResult.innerHTML = playerOutput;
 	computerResult.innerHTML =  temp;
-
+}
 };
 
 scissors.onclick = function(){
+	if(isGameActive == true){
 	playerOutput = "Scissors"
 	let temp = computerPlay(3);
 	console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
     resultText.innerHTML = playRound(playerOutput,temp);
     playerResult.innerHTML = playerOutput;
 	computerResult.innerHTML = temp;
+}
 };
 
 
