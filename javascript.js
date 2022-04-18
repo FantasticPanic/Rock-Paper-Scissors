@@ -8,9 +8,9 @@ let cWins = 0;
 let isGameActive = true;
 
 const selection = document.getElementsByClassName("selection-button");
-var rock = document.getElementById("selection-rock");
-var paper = document.getElementById("selection-paper");
-var scissors = document.getElementById("selection-scissors");
+var rock = document.getElementById("player-selection-rock");
+var paper = document.getElementById("player-selection-paper");
+var scissors = document.getElementById("player-selection-scissors");
 var resultText = document.getElementById("result-text");
 var playerResult = document.getElementById("player-result");
 var computerResult = document.getElementById("computer-result");
@@ -18,50 +18,74 @@ var playerWins = document.getElementById("player-score");
 var computerWins = document.getElementById("computer-score");
 var finalResultText = document.getElementById("final-result-text");
 
+var playerChoiceRock = document.getElementById("player-choice-rock");
+var playerChoicePaper = document.getElementById("player-choice-paper");
+var playerChoiceScissors = document.getElementById("player-choice-scissors");
+var computerChoiceRock = document.getElementById("computer-choice-rock");
+var computerChoicePaper = document.getElementById("computer-choice-paper");
+var computerChoiceScissors = document.getElementById("computer-choice-scissors");
+
+const selectedChoices = 
+[playerChoiceRock, playerChoicePaper, playerChoiceScissors, 
+computerChoiceRock, computerChoicePaper, computerChoiceScissors
+];
+
+/////////////////////////////////////////////////////////////////////////
 
 function start(){
 	playerWins.innerHTML = 0;
 	computerWins.innerHTML = 0;
 }
 
-start();
+function reset(){
+for(var i = 0, length = selectedChoices.length; i < length; i++){
+	selectedChoices[i].style.backgroundColor = 'transparent';
+	}
+	console.log('RESET');
+}
 
 function computerPlay(max){
-let temp = Math.floor(Math.random()*max);
-if(temp == 0){
-computerOutput = "Rock"
-}
-if(temp == 1){
-computerOutput = "Paper"
-}
-if(temp == 2){
-computerOutput = "Scissors"
-}
+	let temp = Math.floor(Math.random()*max);
+	if(temp == 0){
+		computerOutput = "Rock";
+		computerChoiceRock.style.backgroundColor = 'yellow';
+	}
+	if(temp == 1){
+		computerOutput = "Paper"
+		computerChoicePaper.style.backgroundColor = 'yellow';
+	}
+	if(temp == 2){
+		computerOutput = "Scissors"
+		computerChoiceScissors.style.backgroundColor = 'yellow';
+	}
 
-//console.log(output);
 return computerOutput;
 }
 
 
 
 function playerPlay(max){
-let temp = Math.floor(Math.random()*max);
-if(temp == 0){
-playerOutput = "Rock"
-}
-if(temp == 1){
-playerOutput = "Paper"
-}
-if(temp == 2){
-playerOutput = "Scissors"
-}
-return playerOutput;
+	let temp = Math.floor(Math.random()*max);
+	if(temp == 0){
+		playerOutput = "Rock"
+		playerChoiceRock.style.backgroundColor = 'yellow';
+	}
+	if(temp == 1){
+		playerOutput = "Paper"
+		playerChoicePaper.style.backgroundColor = 'yellow';
+	}
+	if(temp == 2){
+		playerOutput = "Scissors"
+		playerChoiceScissors.style.backgroundColor = 'yellow';
+		
+	}
+	return playerOutput;
 }
 
 
 function scoreCheck()
 {
-  if(cWins == 5)
+	if(cWins == 5)
 	{
 		finalResultText.innerHTML = "Computer Wins";
 		isGameActive = false;
@@ -78,7 +102,7 @@ function scoreCheck()
 
 //checks the player and AI selection
 function playRound(playerSelection, computerSelection){
-	
+	//reset();
 
 	if(playerSelection == computerSelection)
 	{
@@ -87,61 +111,64 @@ function playRound(playerSelection, computerSelection){
 
 	if(playerSelection != computerSelection)
 	{
-	
+
 		if(playerSelection === "Rock" && computerSelection === "Scissors" 
-		|| playerSelection === "Paper" && computerSelection === "Rock"
-		|| playerSelection === "Scissors" && computerSelection === "Paper")
-	{
-		pWins+=1;
-		scoreCheck();
-		playerWins.textContent = pWins;
-		return "Win";
+			|| playerSelection === "Paper" && computerSelection === "Rock"
+			|| playerSelection === "Scissors" && computerSelection === "Paper")
+		{
+			pWins+=1;
+			scoreCheck();
+			playerWins.textContent = pWins;
+			return "Win";
+		}
+		else
+		{
+			cWins+=1;
+			scoreCheck();
+			computerWins.textContent = cWins;
+			return "Lose";
+		} 
 	}
-	else
-	{
-		cWins+=1;
-		scoreCheck();
-		computerWins.textContent = cWins;
-		return "Lose";
-	} 
- }
-		
+
 }
 
 
-
+start();
+/////////////BUTTONS///////////////////////////
 
 rock.onclick = function(){
 	if(isGameActive == true){
+		reset();
 		playerOutput = "Rock"
+		playerChoiceRock.style.backgroundColor = 'yellow';
 		let temp = computerPlay(3);
 		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
 		resultText.innerHTML = playRound(playerOutput,temp);
-		playerResult.innerHTML =  playerOutput;
-		computerResult.innerHTML = temp;
- }
+	}
 };
 
 paper.onclick = function(){
 	if(isGameActive == true){
-	playerOutput = "Paper"
-	let temp = computerPlay(3);
-    console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
-	resultText.innerHTML = playRound(playerOutput,temp);
-	playerResult.innerHTML = playerOutput;
-	computerResult.innerHTML =  temp;
-}
+		reset();
+		playerOutput = "Paper"
+		playerChoicePaper.style.backgroundColor = 'yellow';		
+		let temp = computerPlay(3);
+		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		resultText.innerHTML = playRound(playerOutput,temp);
+
+	}
 };
 
 scissors.onclick = function(){
 	if(isGameActive == true){
-	playerOutput = "Scissors"
-	let temp = computerPlay(3);
-	console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
-    resultText.innerHTML = playRound(playerOutput,temp);
-    playerResult.innerHTML = playerOutput;
-	computerResult.innerHTML = temp;
-}
+		reset();
+		playerOutput = "Scissors"
+		playerChoiceScissors.style.backgroundColor = 'yellow';
+		let temp = computerPlay(3);
+		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		resultText.innerHTML = playRound(playerOutput,temp);
+	}
 };
 
 
+///////////////////////////////////////////////////

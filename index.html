@@ -5,31 +5,58 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" href="styles.css">
 	<title>RPS</title>
+	<link href="">
 
 </head>
 <body>
-	<h1>Rock Paper Scissors</h1>
-	<div class="selection-container">
-		<div id = "selection-rock" class="selection-button"><button>Rock</button></div>
-		<div id = "selection-paper"class="selection-button"><button>Paper</button></div>
-		<div id = "selection-scissors"class="selection-button"><button>Scissors</button></div>
+	<div class="header">
+		<h1>Rock Paper Scissors</h1>
 	</div>
 
-	<div class="result-container">
+	<div class="content-container">
 		<div class="result-row">
-			<h2 id="player-score">X</h2>
-			<h2 id="computer-score">X</h2>
+			<img src="imgs/nicolas_cage.jpg" class="portrait">
+			<img src="imgs/bear.jpg" class="portrait">
 		</div>
-		<div class="result-row">
-			<h3>Player Choice: </h3>
-			<h3> Computer Choice: </h3>
+		<div class="select-row">
+			<div class="selection-container">
+				<div id = "player-choice-rock" class="selection-button">
+					<img src="imgs/rock.png"></div>
+				<div id = "player-choice-paper" class="selection-button">
+					<img src="imgs/paper.png"></div>
+				<div id = "player-choice-scissors" class="selection-button">
+					<img src="imgs/scissors.png"></div>
+			</div>
+			<div class="selection-container">
+				<div id = "computer-choice-rock" class="selection-button">
+					<img src="imgs/rock.png"></div>
+				<div id = "computer-choice-paper" class="selection-button">
+					<img src="imgs/paper.png"></div>
+				<div id = "computer-choice-scissors" class="selection-button">
+					<img src="imgs/scissors.png"></div>
+			</div>
 		</div>
-		<div class="result-row display">
-			<p id="player-result"></p>
-			<p id="computer-result"></p>
+
+		<div class="result-container">
+			<div class="result-row">
+				<h2 id="player-score">X</h2>
+				<h2 id="computer-score">X</h2>
+			</div>
+			<!-- <div class="result-row display">
+				<p id="player-result"></p>
+				<p id="computer-result"></p>
+			</div> -->
+			<p id="result-text">GOAT</p>
+				<div class="selection-container">
+				<div id = "player-selection-rock" class="selection-button">
+					<input type="image" src="imgs/rock.png"></div>
+				<div id = "player-selection-paper" class="selection-button">
+					<input type="image" src="imgs/paper.png"></div>
+				<div id = "player-selection-scissors"class="selection-button">
+					<input type="image" src="imgs/scissors.png"></div>
+			</div>
+			<p id="final-result-text"> Final Result </p>
 		</div>
-		<p id="result-text">GOAT</p>
-		<p id="final-result-text"> Final Result </p>
 	</div>
 	<script src="javascript.js"></script>
 </body>

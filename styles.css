@@ -1,13 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+
 h1{
+	display: flex;
+	justify-content: center;
+	font-family: 'Domine', serif;
+	font-size: 3em;
+}
+
+
+p{
 	display: flex;
 	justify-content: center;
 }
 
-p{
- 	display: flex;
- 	justify-content: center;
+body{
+	margin: 0px;
 }
 
+.choice-icon button{
+   border:none;
+   background-color:transparent;
+   outline:none;
+}
+
+.header{
+	background-color: lightblue;
+	padding: 1.5em 0em;
+}
+
+.content-container{
+	flex: 1;
+	margin: 0em;
+	padding: 1em;
+	border: 2px solid red;
+	background-color: lightblue;
+}
 .selection-button
 {
 	display: flex;
@@ -23,6 +50,8 @@ p{
 	display: flex;
 	justify-content: center;
 	gap : 10px;
+	border: 2px solid green;
+	flex: 1;
 }
 
 .result-container{
@@ -32,11 +61,17 @@ p{
 	gap : 10px;
 }
 
+.select-row{
+display: flex;
+justify-content: space-between;
+
+}
+
 .result-row{
 	display: flex;
 	justify-content: space-around;
 	margin-top: 10px;
-	margin-bottom: -20px;
+	margin-bottom: 20px;
 	border:  1px solid green;
 
 }
@@ -46,20 +81,27 @@ p{
 	padding: 1px;
 }
 
+.portrait{
+	max-height: 200px;
+	max-width: 200px;
+}
+
 #final-result-text {
 	font-size: 45px;
 }
 
-
+.choice-icon{
+    width:200px;
+    height:200px;
+}
 
 .selection-button:hover
 {
- background-color: lightgrey;
+	background-color: lightgrey;
 }
 
-#selection-rock{}
+.selection-button:active{
+	background-color: green;
+}
 
-#selection-paper{}
-
-#selection-scissors{}
 
