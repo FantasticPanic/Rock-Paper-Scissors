@@ -39,7 +39,8 @@ function start(){
 
 function reset(){
 for(var i = 0, length = selectedChoices.length; i < length; i++){
-	selectedChoices[i].style.backgroundColor = 'transparent';
+	selectedChoices[i].style.backgroundColor = 'grey';
+	selectedChoices[i].style.opacity = "0.5";
 	}
 	console.log('RESET');
 }
@@ -49,14 +50,18 @@ function computerPlay(max){
 	if(temp == 0){
 		computerOutput = "Rock";
 		computerChoiceRock.style.backgroundColor = 'yellow';
+		computerChoiceRock.style.opacity = '1'
+
 	}
 	if(temp == 1){
 		computerOutput = "Paper"
 		computerChoicePaper.style.backgroundColor = 'yellow';
+		computerChoicePaper.style.opacity = '1'	
 	}
 	if(temp == 2){
 		computerOutput = "Scissors"
 		computerChoiceScissors.style.backgroundColor = 'yellow';
+		computerChoiceScissors.style.opacity = '1'
 	}
 
 return computerOutput;
@@ -87,14 +92,14 @@ function scoreCheck()
 {
 	if(cWins == 5)
 	{
-		finalResultText.innerHTML = "Computer Wins";
+		finalResultText.innerHTML = "Bear Wins. Refresh page to play again!";
 		isGameActive = false;
 		console.log('computer wins');
 
 	}
 	if(pWins == 5) 
 	{
-		finalResultText.innerHTML = "Player Wins";
+		finalResultText.innerHTML = "Cage Wins. Refresh page to play again";
 		isGameActive = false;
 		console.log("player wins");
 	}
@@ -141,8 +146,9 @@ rock.onclick = function(){
 		reset();
 		playerOutput = "Rock"
 		playerChoiceRock.style.backgroundColor = 'yellow';
+		playerChoiceRock.style.opacity = '1'
 		let temp = computerPlay(3);
-		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		console.log("Player chose: "+ playerOutput+ " Bear chose: " + temp);
 		resultText.innerHTML = playRound(playerOutput,temp);
 	}
 };
@@ -151,9 +157,10 @@ paper.onclick = function(){
 	if(isGameActive == true){
 		reset();
 		playerOutput = "Paper"
-		playerChoicePaper.style.backgroundColor = 'yellow';		
+		playerChoicePaper.style.backgroundColor = 'yellow';
+		playerChoicePaper.style.opacity = '1'		
 		let temp = computerPlay(3);
-		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		console.log("Player chose: "+ playerOutput+ " Bear chose: " + temp);
 		resultText.innerHTML = playRound(playerOutput,temp);
 
 	}
@@ -164,8 +171,9 @@ scissors.onclick = function(){
 		reset();
 		playerOutput = "Scissors"
 		playerChoiceScissors.style.backgroundColor = 'yellow';
+		playerChoiceScissors.style.opacity = '1'
 		let temp = computerPlay(3);
-		console.log("Player chose: "+ playerOutput+ " Computer chose: " + temp);
+		console.log("Player chose: "+ playerOutput+ " Bear chose: " + temp);
 		resultText.innerHTML = playRound(playerOutput,temp);
 	}
 };
